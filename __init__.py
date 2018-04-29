@@ -43,6 +43,11 @@ class HelloWorldSkill(MycroftSkill):
             require("HelloWorldKeyword").build()
         self.register_intent(hello_world_intent,
                              self.handle_hello_world_intent)
+        
+        batman_intent = IntentBuilder("BatmanIntent"). \
+            require("BatmanKeyword").build()
+        self.register_intent(batman_intent,
+                             self.handle_batman_intent)
 
     def handle_thank_you_intent(self, message):
         self.speak_dialog("welcome")
@@ -52,6 +57,9 @@ class HelloWorldSkill(MycroftSkill):
 
     def handle_hello_world_intent(self, message):
         self.speak_dialog("hello.world")
+        
+    def handle_batman_intent(self, message):
+        self.speak_dialog("batman")
 
     def stop(self):
         pass
